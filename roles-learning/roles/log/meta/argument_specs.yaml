@@ -1,0 +1,18 @@
+---
+argument_specs:
+  main:
+    short_description: A role to log messages.
+    options:
+      msg:
+        type: "str"
+        required: true
+        description: "The log message to print."
+      log_level:
+        type: "int"
+        required: true
+        description: "Log level of the message. 0: error, 1: info, 2: debug."
+      LOG_LEVEL:
+        type: "int"
+        description: "Global log level of the play should not be specified at the task level."
+        default: 1
+

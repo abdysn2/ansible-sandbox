@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  vars:
+    LOG_LEVEL: 1
+  pre_tasks:
+    - debug:
+        msg: "Pre"
+  post_tasks:
+    - debug:
+        msg: "After"
+  tasks:
+    - set_fact:
+        test_msg: hello
+    - include_role:
+        name: log
+      vars:
+        msg: "{{ test_msg }}"
+        log_level: 1
+    - set_fact:
+        test_msg: world
+    - include_role:
+        name: log
+      vars:
+        msg: "{{ test_msg }}"
+        log_level: 1
+  roles:
+    - role: log
+      msg: "roles"
+      log_level: 1
+

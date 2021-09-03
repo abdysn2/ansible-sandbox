@@ -1,0 +1,6 @@
+---
+- name: Log message
+  debug:
+    msg: "{{ msg }}"
+  when: LOG_LEVEL >= log_level
+
